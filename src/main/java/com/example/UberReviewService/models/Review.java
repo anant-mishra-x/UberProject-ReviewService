@@ -16,26 +16,13 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table(name = "bookingreview")
-public class Review {
-
-    @Id //this annotation makes the id property a primary key of our table
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Identity means auto_inc
-    Long id;
+public class Review extends BaseModel {
 
     @Column(nullable = false)
     String content;
 
     Double rating;
-
-    @Column(nullable = false)
-    @CreatedDate
-    Date createdAt;
-
-    @Column(nullable = false)
-    @LastModifiedDate
-    Date updatedAt;
 
     @Override
     public String toString(){
